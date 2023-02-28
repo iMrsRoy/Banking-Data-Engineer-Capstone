@@ -1,0 +1,64 @@
+Application_ID,Gender,Married,Dependents,Education,Self_Employed,Credit_History,Property_Area,Income,Application_Status
+LP001002,Male,No,0,Graduate,No,1,Urban,medium,Y
+LP001003,Male,Yes,1,Graduate,No,1,Rural,medium,N
+LP001005,Male,Yes,0,Graduate,Yes,1,Urban,low,Y
+LP001006,Male,Yes,0,Not Graduate,No,1,Urban,low,Y
+LP001008,Male,No,0,Graduate,No,1,Urban,medium,Y
+LP001011,Male,Yes,2,Graduate,Yes,1,Urban,medium,Y
+LP001013,Male,Yes,0,Not Graduate,No,1,Urban,low,Y
+LP001014,Male,Yes,3+,Graduate,No,0,Semiurban,low,N
+LP001018,Male,Yes,2,Graduate,No,1,Urban,medium,Y
+LP001020,Male,Yes,1,Graduate,No,1,Semiurban,high,N
+LP001024,Male,Yes,2,Graduate,No,1,Urban,low,Y
+LP001028,Male,Yes,2,Graduate,No,1,Urban,low,Y
+LP001029,Male,No,0,Graduate,No,1,Rural,low,N
+LP001030,Male,Yes,2,Graduate,No,1,Urban,low,Y
+LP001032,Male,No,0,Graduate,No,1,Urban,medium,Y
+LP001036,Female,No,0,Graduate,No,0,Urban,low,N
+LP001038,Male,Yes,0,Not Graduate,No,1,Rural,medium,N
+LP001043,Male,Yes,0,Not Graduate,No,0,Urban,medium,N
+LP001046,Male,Yes,1,Graduate,No,1,Urban,medium,Y
+LP001047,Male,Yes,0,Not Graduate,No,0,Semiurban,low,N
+LP001066,Male,Yes,0,Graduate,Yes,1,Semiurban,medium,Y
+LP001068,Male,Yes,0,Graduate,No,1,Semiurban,low,Y
+LP001073,Male,Yes,2,Not Graduate,No,1,Urban,medium,Y
+LP001086,Male,No,0,Not Graduate,No,1,Urban,low,N
+LP001095,Male,No,0,Graduate,No,1,Urban,low,N
+LP001097,Male,No,1,Graduate,Yes,1,Rural,medium,N
+LP001098,Male,Yes,0,Graduate,No,1,Semiurban,low,Y
+LP001100,Male,No,3+,Graduate,No,1,Rural,high,N
+LP001106,Male,Yes,0,Graduate,No,1,Urban,low,Y
+LP001109,Male,Yes,0,Graduate,No,0,Urban,low,N
+LP001112,Female,Yes,0,Graduate,No,1,Semiurban,low,Y
+LP001114,Male,No,0,Graduate,No,1,Urban,medium,Y
+LP001116,Male,No,0,Not Graduate,No,1,Semiurban,low,Y
+LP001119,Male,No,0,Graduate,No,1,Urban,low,N
+LP001120,Male,No,0,Graduate,No,1,Urban,low,Y
+LP001131,Male,Yes,0,Graduate,No,1,Semiurban,low,Y
+LP001136,Male,Yes,0,Not Graduate,Yes,1,Urban,medium,Y
+LP001137,Female,No,0,Graduate,No,1,Urban,low,Y
+LP001138,Male,Yes,1,Graduate,No,1,Urban,medium,Y
+LP001144,Male,Yes,0,Graduate,No,1,Urban,medium,Y
+LP001146,Female,Yes,0,Graduate,No,0,Urban,low,N
+LP001151,Female,No,0,Graduate,No,1,Semiurban,medium,Y
+LP001155,Female,Yes,0,Not Graduate,No,1,Semiurban,low,Y
+LP001157,Female,No,0,Graduate,No,1,Semiurban,low,Y
+LP001164,Female,No,0,Graduate,No,1,Semiurban,medium,N
+LP001179,Male,Yes,2,Graduate,No,1,Urban,medium,N
+LP001186,Female,Yes,1,Graduate,Yes,0,Urban,high,N
+LP001194,Male,Yes,2,Graduate,No,1,Semiurban,low,Y
+LP001195,Male,Yes,0,Graduate,No,1,Semiurban,low,Y
+LP001197,Male,Yes,0,Graduate,No,1,Rural,low,N
+LP001198,Male,Yes,1,Graduate,No,1,Urban,medium,Y
+LP001199,Male,Yes,2,Not Graduate,No,1,Urban,low,Y
+LP001205,Male,Yes,0,Graduate,No,1,Urban,low,Y
+LP001206,Male,Yes,3+,Graduate,No,1,Urban,low,Y
+LP001207,Male,Yes,0,Not Graduate,Yes,0,Rural,low,N
+LP001213,Male,Yes,1,Graduate,No,0,Rural,medium,N
+LP001222,Female,No,0,Graduate,No,0,Semiurban,medium,N
+LP001225,Male,Yes,0,Graduate,No,1,Semiurban,medium,N
+LP001228,Male,No,0,Not Graduate,No,0,Urban,low,N
+LP001233,Male,Yes,1,Graduate,No,1,Urban,high,Y
+LP001238,Male,Yes,3+,Not Graduate,Yes,1,Urban,medium,Y
+LP001241,Female,No,0,Graduate,No,0,Semiurban,medium,N
+LP001243,Male,Yes,0,Graduate,No,1,Urban,low,Y
