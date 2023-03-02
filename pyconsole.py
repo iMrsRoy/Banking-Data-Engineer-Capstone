@@ -3,6 +3,7 @@ import pandas as pd
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 import pyinputplus as pyin
+import mysql.connector as mysql
 import warnings
 
 # suppress warnings
