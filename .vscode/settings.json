@@ -11,7 +11,7 @@
             "name": "mysql",
             "database": "creditcard_capstone",
             "username": "root",
-            "password": "ShaShi3493*"
+            "password": "PASSWORD GOES HERE"
         }
     ]
 }
