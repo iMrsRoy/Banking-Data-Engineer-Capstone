@@ -1,4 +1,9 @@
-import mysql.connector
+import mysql.connector as mysql
+import pyinputplus as pyip
+import pandas as pd
+import pyinputplus as pyin
+import pandas.io.sql as psql
+import warnings
 
 # define MySQL connection parameters
 mysql_hostname = "localhost"
@@ -7,8 +12,11 @@ mysql_database = "creditcard_capstone"
 mysql_username = "root"
 mysql_password = "ShaShi3493*"
 # connect to MySQL database
-cnx = mysql.connector.connect(user=mysql_username, password=mysql_password,
-                              host=mysql_hostname, database=mysql_database)
+cnx = mysql.connect(
+    user=mysql_username,
+    password=mysql_password,
+    host=mysql_hostname,
+    database=mysql_database)
 
 query = "(SELECT * FROM cdw_sapp_branch bc \
       JOIN cdw_sapp_credit_card cc ON bc.BRANCH_CODE = cc.BRANCH_CODE \
@@ -25,10 +33,14 @@ def execute_query(query):
     cursor.close()
     return result
 
+
+query = "(SELECT * FROM cdw_sapp_branch bc JOIN cdw_sapp_credit_card cc ON bc.BRANCH_CODE = cc.BRANCH_CODE JOIN cdw_sapp_customer as cust ON cc.CUST_SSN = cust.SSN)"
+
+
 # define a function to validate user input
 def validate_input(prompt, expected_type):
     while True:
-        user_input = input(prompt)
+        user_input = pyin.inputStr(prompt)
         try:
             validated_input = expected_type(user_input)
             return validated_input
@@ -38,63 +50,43 @@ def validate_input(prompt, expected_type):
 # define a loop for user interaction
 while True:
     print("Select an option:")
-    print("1. View all records")
-    print("2. View a specific record by ID")
-    print("3. Add a new record")
-    print("4. Update an existing record")
-    print("5. Delete a record")
-    print("6. Exit")
+    print("1. Display transactions by zip code and date")
+    print("2. Display transaction count and total value by type")
+    print("3. Display transaction count and total value by branch state")
+    print("4. Exit")
 
     # validate user input
     choice = validate_input("Enter your choice: ", int)
     if choice == 1:
-        # view all records
-        result = execute_query("SELECT * FROM my_table")
-        for row in result:
-            print(row)
+        # display transactions by zip code and date
+        zip_code = validate_input("Enter the zip code: ", int)
+        year = validate_input("Enter the year: ", int)
+        month = validate_input("Enter the month: ", int)
+        result = execute_query(f"SELECT * FROM transactions WHERE zip_code = {zip_code} AND year = {year} AND month = {month} ORDER BY day DESC")
+        if not result.empty:
+            print(result)
+        else:
+            print("No transactions found.")
     elif choice == 2:
-        # view a specific record by ID
-        id = validate_input("Enter the ID of the record you want to view: ", int)
-        result = execute_query(f"SELECT * FROM my_table WHERE id = {id}")
-        if result:
-            print(result[0])
+        # display transaction count and total value by type
+        transaction_type = validate_input("Enter the transaction type: ", str)
+        result = execute_query(f"SELECT COUNT(*) AS transaction_count, SUM(amount) AS total_value FROM transactions WHERE type = '{transaction_type}'")
+        if not result.empty:
+            print(result)
         else:
-            print("Record not found.")
+            print("No transactions found.")
     elif choice == 3:
-        # add a new record
-        name = input("Enter the name: ")
-        age = validate_input("Enter the age: ", int)
-        execute_query(f"INSERT INTO my_table (name, age) VALUES ('{name}', {age})")
-        cnx.commit()
-        print("Record added.")
-    elif choice == 4:
-        # update an existing record
-        id = validate_input("Enter the ID of the record you want to update: ", int)
-        result = execute_query(f"SELECT * FROM my_table WHERE id = {id}")
-        if result:
-            print(f"Current record: {result[0]}")
-            name = input("Enter the new name (leave blank to keep current value): ")
-            age = input("Enter the new age (leave blank to keep current value): ")
-            if name == "":
-                name = result[0][1]
-            if age == "":
-                age = result[0][2]
-            execute_query(f"UPDATE my_table SET name = '{name}', age = {age} WHERE id = {id}")
-            cnx.commit()
-            print("Record updated.")
+        # display transaction count and total value by branch state
+        state = validate_input("Enter the state: ", str)
+        result = execute_query(f"SELECT COUNT(*) AS transaction_count, SUM(amount) AS total_value FROM transactions JOIN branches ON transactions.branch_id = branches.id WHERE branches.state = '{state}'")
+        if not result.empty:
+            print(result)
         else:
-            print("Record not found.")
-    elif choice == 5:
-        # delete a record
-        id = validate_input("Enter the ID of the record you want to delete: ", int)
-        execute_query(f"DELETE FROM my_table WHERE id = {id}")
-        cnx.commit()
-        print("Record deleted.")
-    elif choice == 6:
+            print("No transactions found.")
+    elif choice == 4:
         # exit
         break
     else:
         print("Invalid choice.")
-        
-# close MySQL connection
+
 

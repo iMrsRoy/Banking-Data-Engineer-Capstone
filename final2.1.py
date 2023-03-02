@@ -1,40 +1,18 @@
-import pyspark as psk
-import pandas as pd
-from pyspark.sql import SparkSession
-from pyspark.sql.functions import *
-import pyinputplus as pyin
-import pandas.io.sql as psql
-import mysql.connector as mysql
 import warnings
+import pyinputplus as pyin
+import pandas as pd
+import pyspark.sql.functions as F
+from pyspark.sql import SparkSession
 
 # create SparkSession
 spark = SparkSession.builder \
     .appName("Bank Transactions") \
-    .config("spark.jars","/Users/roy/Downloads/mysql-connector-j-8.0.32/mysql-connector-j-8.0.32.jar")\
+    .config("spark.some.config.option", "some-value") \
     .getOrCreate()
-
-# define MySQL connection parameters
-mysql_hostname = "localhost"
-mysql_port = 3306
-mysql_database = "creditcard_capstone"
-mysql_username = "root"
-mysql_password = "ShaShi3493*"
 
 # suppress pyspark warnings
 warnings.filterwarnings("ignore", category=UserWarning, message=".*Please use.*")
 
-query = "(SELECT * FROM cdw_sapp_branch bc \
-      JOIN cdw_sapp_credit_card cc ON bc.BRANCH_CODE = cc.BRANCH_CODE \
-        JOIN cdw_sapp_customer as cust ON cc.CUST_SSN = cust.SSN) as t"
-
-customer_df = spark.read.format("jdbc")\
-        .option("url", "jdbc:mysql://localhost:3306/creditcard_capstone") \
-        .option("dbtable", "query") \
-        .option("user", "root")\
-        .option("password", "ShaShi3493*")\
-        .load()
-
-pd_customer_df = customer_df.toPandas() 
 # define a function to execute SQL queries and return results
 def execute_query(query):
     return spark.sql(query).toPandas()
